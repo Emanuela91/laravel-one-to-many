@@ -12,4 +12,11 @@ class Post extends Model
         'title',
         'body',
     ];
+
+
+    // funzione per il collegamento con person
+    public function user()
+    {
+        return $this->belongsTo(Person::class);
+    }
 }

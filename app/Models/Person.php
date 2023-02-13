@@ -13,4 +13,16 @@ class Person extends Model
         'name',
         'email',
     ];
+
+    // funzione per il collegamento 'uno a uno' con person detail 
+    public function personDetail()
+    {
+        return $this->hasOne(PersonDetail::class);
+    }
+
+    // funzione per il collegamento 'uno a molti' con posts
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }
