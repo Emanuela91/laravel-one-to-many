@@ -12,19 +12,30 @@ return new class extends Migration {
      */
     public function up()
     {
+        // collegamento people post 
         Schema::table('posts', function (Blueprint $table) {
             // VERSIONE 1
             // creato user_id in post con le stesse caratteristiche dell'id, quindi bigint
-            // $table->bigInteger('user_id')->unsigned();
+            // $table->bigInteger('person_id')->unsigned();
 
-            // creato collegamento tra post e user 
-            // $table->foreign('user_id')
+            // creato collegamento tra post e people 
+            // $table->foreign('person_id')
             //     ->references('id')
-            //     ->on('users');
+            //     ->on('person');
 
             // VERSIONE 2
-            $table->foreignId('user_id')
+            $table->foreignId('person_id')
                 ->constrained();
+        });
+
+        // collegamento tra people e person details
+        Schema::table('person_details', function (Blueprint $table) {
+
+
+            $table->foreignId('person_id')
+                ->constrained();
+
+            $table->primary('person_id');
 
 
         });

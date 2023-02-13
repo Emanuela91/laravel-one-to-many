@@ -13,7 +13,8 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('person_details', function (Blueprint $table) {
-            $table->id();
+            // messo come commento altrimenti va in conflitto quando creo la relazione con people 
+            // $table->id();
             $table->string('phone', 24)->nullable();
             $table->string('address');
             $table->string('avatar')->nullable();
