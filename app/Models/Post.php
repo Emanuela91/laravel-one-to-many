@@ -15,7 +15,7 @@ class Post extends Model
 
 
     // funzione per il collegamento con person
-    public function user()
+    public function person()
     {
         return $this->belongsTo(Person::class);
     }
